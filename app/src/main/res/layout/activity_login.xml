@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login"
     android:background="#0A1683"
-    >
+    tools:context=".Login">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
 
         android:layout_width="270dp"
         android:layout_height="60dp"
         android:layout_marginBottom="52dp"
-android:gravity="center"
         android:background="@drawable/buttonshape"
+        android:gravity="center"
         android:shadowColor="#A8A8A8"
         android:shadowDx="0"
         android:shadowDy="0"
@@ -32,13 +31,16 @@ android:gravity="center"
         android:id="@+id/editTextText3"
 
         android:layout_width="319dp"
-        android:layout_height="42dp"
+        android:layout_height="50dp"
 
         android:background="@drawable/edittext_bg"
         android:ems="10"
         android:gravity="right"
         android:hint="أدخل كلمة السر"
         android:inputType="textPassword"
+        android:paddingStart="6dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="6dp"
         android:textColor="#000000"
         android:textColorHighlight="#020202"
         android:textColorHint="#5A5555"

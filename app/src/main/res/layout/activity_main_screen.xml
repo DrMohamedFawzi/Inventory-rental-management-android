@@ -42,6 +42,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/add"
         app:layout_anchor="@id/bottomAppBar"
-        app:layout_anchorGravity="center" />
+        app:layout_anchorGravity="center"
+        android:contentDescription="" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

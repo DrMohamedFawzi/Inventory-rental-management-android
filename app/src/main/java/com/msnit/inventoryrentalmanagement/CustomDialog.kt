@@ -14,7 +14,10 @@ class CustomDialog : DialogFragment() {
         val view = inflater.inflate(R.layout.dialog_main, null)
         builder.setView(view)
 
-        builder.setPositiveButton("Close") { dialog, _ ->
+        builder.setPositiveButton("OK") { dialog, _ ->
+
+        }
+        builder.setNegativeButton("Close") { dialog, _ ->
             dialog.dismiss()
         }
 

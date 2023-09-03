@@ -19,8 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class main_screen : AppCompatActivity() {
     private lateinit var listView: ListView
 
-    @SuppressLint("SuspiciousIndentation")
-    override fun onCreate(savedInstanceState: Bundle?) {
+   override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_screen)
 

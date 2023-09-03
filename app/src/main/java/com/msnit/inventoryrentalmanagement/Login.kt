@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class login : AppCompatActivity() {
+class Login : AppCompatActivity() {
 
     private val delayDuration: Long = 1000 // 5 seconds
 

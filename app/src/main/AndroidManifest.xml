@@ -16,7 +16,7 @@
             android:name=".main_screen"
             android:exported="false" />
         <activity
-            android:name=".login"
+            android:name=".Login"
             android:exported="false" />
         <activity
             android:name=".signup"

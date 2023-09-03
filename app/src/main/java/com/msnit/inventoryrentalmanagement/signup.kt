@@ -15,7 +15,7 @@ class signup : AppCompatActivity() {
 
         handler.postDelayed({
             // تنفيذ الانتقال إلى الواجهة الأخرى هنا
-            val intent = Intent(this, login::class.java)
+            val intent = Intent(this, Login::class.java)
             startActivity(intent)
             finish() // اختياري: إغلاق الواجهة الحالية إذا لم تكن بحاجة إليها
         }, delayDuration)

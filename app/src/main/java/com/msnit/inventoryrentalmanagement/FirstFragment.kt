@@ -20,9 +20,9 @@ class FirstFragment : Fragment() {
         firstButton = view.findViewById(R.id.firstdButton)
 
         // تعيين مستمع للنقر على الزر
-        firstButton.setOnClickListener(View.OnClickListener {
+        firstButton.setOnClickListener {
             Toast.makeText(activity, "Clicked on First Fragment", Toast.LENGTH_SHORT).show()
-        })
+        }
 
         return view
     }
