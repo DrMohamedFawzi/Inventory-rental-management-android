@@ -35,4 +35,7 @@
         </activity>
     </application>
 
+    <!--on below line we are adding a style for MainActivity-->
+
+
 </manifest>

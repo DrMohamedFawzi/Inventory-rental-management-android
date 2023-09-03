@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 class splash : AppCompatActivity() {
-    private val delayDuration: Long = 6000 // 5 seconds
+    private val delayDuration: Long = 1000 // 5 seconds
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

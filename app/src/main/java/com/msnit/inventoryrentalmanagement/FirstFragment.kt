@@ -17,7 +17,7 @@ class FirstFragment : Fragment() {
         view = inflater.inflate(R.layout.fragment_first, container, false)
 
         // الحصول على مرجع الزر من الواجهة
-        firstButton = view.findViewById(R.id.firstButton)
+        firstButton = view.findViewById(R.id.firstdButton)
 
         // تعيين مستمع للنقر على الزر
         firstButton.setOnClickListener(View.OnClickListener {

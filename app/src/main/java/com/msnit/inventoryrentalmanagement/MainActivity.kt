@@ -1,23 +1,41 @@
 package com.msnit.inventoryrentalmanagement
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
-    private val delayDuration: Long = 6000 // 5 seconds
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // on below line we are configuring
+        // our window to full screen
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
         setContentView(R.layout.activity_main)
 
-        val handler = android.os.Handler()
+        // on below line we are calling
+        // handler to run a task
+        // for specific time interval
+        Handler().postDelayed({
+            // on below line we are
+            // creating a new intent
+            val i = Intent(
+                this@MainActivity,
+                splash::class.java
+            )
+            // on below line we are
+            // starting a new activity.
+            startActivity(i)
 
-        handler.postDelayed({
-            // تنفيذ الانتقال إلى الواجهة الأخرى هنا
-            val intent = Intent(this, splash::class.java)
-            startActivity(intent)
-            finish() // اختياري: إغلاق الواجهة الحالية إذا لم تكن بحاجة إليها
-        }, delayDuration)
+            // on the below line we are finishing
+            // our current activity.
+            finish()
+        }, 2000)
     }
 }

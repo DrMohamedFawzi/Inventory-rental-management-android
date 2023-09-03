@@ -6,7 +6,7 @@ import android.os.Bundle
 
 class signup : AppCompatActivity() {
 
-    private val delayDuration: Long = 6000 // 5 seconds
+    private val delayDuration: Long = 1000 // 5 seconds
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,7 +15,7 @@ class signup : AppCompatActivity() {
 
         handler.postDelayed({
             // تنفيذ الانتقال إلى الواجهة الأخرى هنا
-            val intent = Intent(this, main_screen::class.java)
+            val intent = Intent(this, login::class.java)
             startActivity(intent)
             finish() // اختياري: إغلاق الواجهة الحالية إذا لم تكن بحاجة إليها
         }, delayDuration)
