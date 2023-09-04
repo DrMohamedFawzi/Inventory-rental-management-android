@@ -5,8 +5,9 @@
     <string name="search" translatable="false">Search</string>
     <string name="profile" translatable="false">Profile</string>
     <string name="settings" translatable="false">Settings</string>
+    <string name="image_description" />
 
-        <string-array name="data_list">
+    <string-array name="data_list">
             <item>Option 1</item>
             <item>Option 2</item>
             <item>Option 3</item>

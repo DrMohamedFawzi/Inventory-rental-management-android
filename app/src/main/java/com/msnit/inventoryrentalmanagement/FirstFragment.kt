@@ -2,27 +2,25 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.msnit.inventoryrentalmanagement.R
 
 class FirstFragment : Fragment() {
 
-    private lateinit var view: View
-    private lateinit var firstButton: Button
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: CardAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // تضخيم الواجهة لهذا الفراغ الفرعي
-        view = inflater.inflate(R.layout.fragment_first, container, false)
+        val view = inflater.inflate(R.layout.fragment_first, container, false)
 
-        // الحصول على مرجع الزر من الواجهة
-        firstButton = view.findViewById(R.id.firstdButton)
+        val data = arrayOf("بطاقة 1", "بطاقة 2", "بطاقة 3", "بطاقة 4", "بطاقة 5", "بطاقة65" , "بطاقة75" , "بطاقة 8" , "بطاقة 9")
+        adapter = CardAdapter(data)
 
-        // تعيين مستمع للنقر على الزر
-        firstButton.setOnClickListener {
-            Toast.makeText(activity, "Clicked on First Fragment", Toast.LENGTH_SHORT).show()
-        }
+        recyclerView = view.findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = adapter
 
         return view
     }
