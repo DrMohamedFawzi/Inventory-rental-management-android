@@ -5,14 +5,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.msnit.inventoryrentalmanagement.R
 
-class CardAdapter(private val data: Array<String>) : RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
+class ItemAdapter(private val data: Array<String>) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item_card, parent, false)
-        return CardViewHolder(view)
+        return ItemViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = data[position]
         holder.bind(item)
     }
@@ -21,7 +21,7 @@ class CardAdapter(private val data: Array<String>) : RecyclerView.Adapter<CardAd
         return data.size
     }
 
-    inner class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val titleTextView: TextView = itemView.findViewById(R.id.titleTextView)
 
         fun bind(item: String) {

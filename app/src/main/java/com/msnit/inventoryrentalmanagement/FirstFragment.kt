@@ -10,13 +10,13 @@ import com.msnit.inventoryrentalmanagement.R
 class FirstFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: CardAdapter
+    private lateinit var adapter: ItemAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_first, container, false)
 
         val data = arrayOf("بطاقة 1", "بطاقة 2", "بطاقة 3", "بطاقة 4", "بطاقة 5", "بطاقة65" , "بطاقة75" , "بطاقة 8" , "بطاقة 9")
-        adapter = CardAdapter(data)
+        adapter = ItemAdapter(data)
 
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())

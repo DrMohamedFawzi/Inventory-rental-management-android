@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#0A1683"
     android:backgroundTintMode="src_over"
-    tools:context=".signup">
+    tools:context=".login.Signup">
 
     <EditText
         android:id="@+id/editTextText2"
