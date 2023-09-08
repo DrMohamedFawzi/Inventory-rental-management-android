@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.msnit.inventoryrentalmanagement.R
 import com.msnit.inventoryrentalmanagement.db.RentalDatabase
 import com.msnit.inventoryrentalmanagement.db.entity.UtilEntity
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -20,6 +21,7 @@ class Signup : AppCompatActivity() {
     private lateinit var editTextConfirmPassword: EditText
     private lateinit var buttonSignup: Button
 
+    @OptIn(DelicateCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
@@ -43,20 +45,23 @@ class Signup : AppCompatActivity() {
 
                 // Insert the UtilEntity into the database using the UtilDao
                 GlobalScope.launch(Dispatchers.IO) {
-                    val rentalDatabase = RentalDatabase.getInstance(applicationContext)
-                    val utilDao = rentalDatabase.utilDao()
-                    utilDao.insert(utilEntity)
+                    try {
+                        val rentalDatabase = RentalDatabase.getInstance(applicationContext)
+                        val utilDao = rentalDatabase.utilDao()
+                        utilDao.insert(utilEntity)
+                        // Handle successful signup
+                        runOnUiThread {
+                            Toast.makeText(applicationContext, "تم التسجيل بنجاح!", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(applicationContext, Login::class.java)
+                            startActivity(intent)
+                            finish() // Optional: Close the current activity if not needed
+                        }
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                        // Handle database error
+                    }
                 }
 
-                // Handle successful signup
-                Toast.makeText(applicationContext, "تم التسجيل بنجاح!", Toast.LENGTH_SHORT).show()
-                val handler = android.os.Handler()
-                handler.postDelayed({
-                    // Perform the transition to another activity here
-                    val intent = Intent(this, Login::class.java)
-                    startActivity(intent)
-                    finish() // Optional: Close the current activity if not needed
-                }, delayDuration)
 
             } else {
                 // Handle invalid input
