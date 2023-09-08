@@ -1,8 +1,10 @@
-package com.msnit.inventoryrentalmanagement
+package com.msnit.inventoryrentalmanagement.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.msnit.inventoryrentalmanagement.R
+import com.msnit.inventoryrentalmanagement.MainScreen
 
 class Login : AppCompatActivity() {
 
@@ -15,7 +17,7 @@ class Login : AppCompatActivity() {
 
         handler.postDelayed({
             // تنفيذ الانتقال إلى الواجهة الأخرى هنا
-            val intent = Intent(this, main_screen::class.java)
+            val intent = Intent(this, MainScreen::class.java)
             startActivity(intent)
             finish() // اختياري: إغلاق الواجهة الحالية إذا لم تكن بحاجة إليها
         }, delayDuration)

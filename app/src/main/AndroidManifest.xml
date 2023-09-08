@@ -13,16 +13,16 @@
         android:theme="@style/Theme.InventoryRentalManagement"
         tools:targetApi="31">
         <activity
-            android:name=".main_screen"
+            android:name=".MainScreen"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".login.Login"
             android:exported="false" />
         <activity
-            android:name=".signup"
+            android:name=".login.Signup"
             android:exported="false" />
         <activity
-            android:name=".splash"
+            android:name=".login.splash"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

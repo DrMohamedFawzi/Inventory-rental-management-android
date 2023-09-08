@@ -2,13 +2,8 @@ package com.msnit.inventoryrentalmanagement
 
 import FirstFragment
 import SecondFragment
-import android.annotation.SuppressLint
-import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -16,7 +11,7 @@ import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class main_screen : AppCompatActivity() {
+class MainScreen : AppCompatActivity() {
     private lateinit var listView: ListView
 
    override fun onCreate(savedInstanceState: Bundle?) {

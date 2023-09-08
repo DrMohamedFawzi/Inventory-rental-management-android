@@ -6,6 +6,7 @@ import android.app.Dialog
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
+import com.msnit.inventoryrentalmanagement.db.DbConnection
 
 class CustomDialog : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -20,6 +21,7 @@ class CustomDialog : DialogFragment() {
         builder.setNegativeButton("Close") { dialog, _ ->
             dialog.dismiss()
         }
+        val db = DbConnection(context).db;
 
         return builder.create()
     }
