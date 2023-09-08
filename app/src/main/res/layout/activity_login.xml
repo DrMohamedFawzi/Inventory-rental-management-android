@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/editTextConfirmPasswords"
 
         android:layout_width="319dp"
         android:layout_height="50dp"

@@ -7,11 +7,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <FrameLayout
-        
+    <Button
         android:id="@+id/flFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:text="Fragment Button"
         android:layout_marginBottom="?attr/actionBarSize"
         app:layout_constraintBottom_toTopOf="@+id/bottomAppBar" />
 
@@ -43,6 +43,6 @@
         android:src="@drawable/add"
         app:layout_anchor="@id/bottomAppBar"
         app:layout_anchorGravity="center"
-        android:contentDescription="" />
+        android:contentDescription="Floating Action Button" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
