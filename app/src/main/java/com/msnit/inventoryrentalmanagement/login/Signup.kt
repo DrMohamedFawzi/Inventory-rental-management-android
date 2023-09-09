@@ -9,7 +9,6 @@ import android.widget.Toast
 import com.msnit.inventoryrentalmanagement.R
 import com.msnit.inventoryrentalmanagement.db.RentalDatabase
 import com.msnit.inventoryrentalmanagement.db.entity.UtilEntity
-import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -21,7 +20,6 @@ class Signup : AppCompatActivity() {
     private lateinit var editTextConfirmPassword: EditText
     private lateinit var buttonSignup: Button
 
-    @OptIn(DelicateCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
@@ -29,8 +27,8 @@ class Signup : AppCompatActivity() {
         // Initialize views
         editTextName = findViewById(R.id.editTextName)
         editTextPassword = findViewById(R.id.editTextPassword)
-        editTextConfirmPassword = findViewById(R.id.editTextConfirmPasswords)
-        buttonSignup = findViewById(R.id.button)
+        editTextConfirmPassword = findViewById(R.id.password)
+        buttonSignup = findViewById(R.id.loginButton)
 
         // Set click listener for the signup button
         // Set click listener for the signup button
@@ -41,27 +39,26 @@ class Signup : AppCompatActivity() {
 
             if (name.isNotEmpty() && password.isNotEmpty() && password == confirmPassword) {
                 // Create a UtilEntity object
-                val utilEntity = UtilEntity(name = name, value = password)
+                val utilEntityUsername = UtilEntity(name = "username", value = name)
+                val utilEntityPassword = UtilEntity(name = "password", value = password)
 
                 // Insert the UtilEntity into the database using the UtilDao
                 GlobalScope.launch(Dispatchers.IO) {
-                    try {
-                        val rentalDatabase = RentalDatabase.getInstance(applicationContext)
-                        val utilDao = rentalDatabase.utilDao()
-                        utilDao.insert(utilEntity)
-                        // Handle successful signup
-                        runOnUiThread {
-                            Toast.makeText(applicationContext, "تم التسجيل بنجاح!", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(applicationContext, Login::class.java)
-                            startActivity(intent)
-                            finish() // Optional: Close the current activity if not needed
-                        }
-                    } catch (e: Exception) {
-                        e.printStackTrace()
-                        // Handle database error
-                    }
+                    val rentalDatabase = RentalDatabase.getInstance(applicationContext)
+                    val utilDao = rentalDatabase.utilDao()
+                    utilDao.insert(utilEntityUsername)
+                    utilDao.insert(utilEntityPassword)
                 }
 
+                // Handle successful signup
+                Toast.makeText(applicationContext, "تم التسجيل بنجاح!", Toast.LENGTH_SHORT).show()
+                val handler = android.os.Handler()
+                handler.postDelayed({
+                    // Perform the transition to another activity here
+                    val intent = Intent(this, Login::class.java)
+                    startActivity(intent)
+                    finish() // Optional: Close the current activity if not needed
+                }, delayDuration)
 
             } else {
                 // Handle invalid input

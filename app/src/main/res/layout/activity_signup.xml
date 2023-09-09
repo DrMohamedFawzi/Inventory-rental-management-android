@@ -31,7 +31,7 @@
         app:layout_constraintVertical_bias="0.145" />
 
     <EditText
-        android:id="@+id/editTextConfirmPasswords"
+        android:id="@+id/password"
 
         android:layout_width="319dp"
         android:layout_height="42dp"
@@ -88,7 +88,7 @@
         app:layout_constraintVertical_bias="0.176" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/loginButton"
 
         android:layout_width="270dp"
         android:layout_height="60dp"
@@ -106,6 +106,6 @@ android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPasswords" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,42 +1,50 @@
 package com.msnit.inventoryrentalmanagement
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.msnit.inventoryrentalmanagement.db.RentalDatabase
+import com.msnit.inventoryrentalmanagement.login.Login
 import com.msnit.inventoryrentalmanagement.login.splash
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-        // on below line we are configuring
-        // our window to full screen
+        // Configure window to full screen
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
-        setContentView(R.layout.activity_main)
 
-        // on below line we are calling
-        // handler to run a task
-        // for specific time interval
-        Handler().postDelayed({
-            // on below line we are
-            // creating a new intent
-            val i = Intent(
-                this@MainActivity,
-                splash::class.java
-            )
-            // on below line we are
-            // starting a new activity.
-            startActivity(i)
+        // Show progress dialog
 
-            // on the below line we are finishing
-            // our current activity.
+
+        GlobalScope.launch(Dispatchers.IO) {
+            val rentalDatabase = RentalDatabase.getInstance(applicationContext)
+            val hasData = rentalDatabase.utilDao().hasData()
+
+            // Delay for 2000 milliseconds (2 seconds)
+            Thread.sleep(2000)
+
+            // Dismiss progress dialog
+
+
+            // Start appropriate activity based on data availability
+            val intent = if (hasData) {
+                Intent(applicationContext, Login::class.java)
+            } else {
+                Intent(applicationContext, splash::class.java)
+            }
+            startActivity(intent)
             finish()
-        }, 2000)
+        }
     }
 }

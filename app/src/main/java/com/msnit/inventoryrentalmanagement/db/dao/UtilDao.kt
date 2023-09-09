@@ -19,4 +19,5 @@ interface UtilDao {
 
     @Query("DELETE FROM util WHERE name = :name")
     suspend fun deleteByKey(name: String)
-}
+    @Query("SELECT EXISTS(SELECT 1 FROM util LIMIT 1)")
+    fun hasData(): Boolean}
