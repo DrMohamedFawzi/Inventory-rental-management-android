@@ -14,7 +14,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class Signup : AppCompatActivity() {
-    private val delayDuration: Long = 7000 // 5 seconds
+    private val delayDuration: Long = 1000 // 5 seconds
     private lateinit var editTextName: EditText
     private lateinit var editTextPassword: EditText
     private lateinit var editTextConfirmPassword: EditText

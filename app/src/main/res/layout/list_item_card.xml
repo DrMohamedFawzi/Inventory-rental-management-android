@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardElevation="4dp"
+    android:layout_margin="10dp"
+    app:cardBackgroundColor="@android:color/white"
     app:cardCornerRadius="8dp"
-    app:cardBackgroundColor="@android:color/white">
+    app:cardElevation="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,24 +14,49 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/baseline_heart_broken_24"
-            android:contentDescription="@string/image_description" />
+
+
 
         <TextView
-            android:text="Fucl Nedal"
             android:id="@+id/titleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:text="Fuck* Nedal"
             android:textColor="@android:color/black"
-            android:layout_marginTop="8dp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-        <!-- أضف أي عناصر أخرى ترغب في عرضها في البطاقة -->
+    <TextView
+            android:id="@+id/descriptionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Fuck* Nedal"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    <TextView
+            android:id="@+id/priceTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Fuck* Nedal"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    <TextView
+            android:id="@+id/quantityTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Fuck* Nedal"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
 
     </LinearLayout>
 

@@ -1,20 +1,20 @@
 package com.msnit.inventoryrentalmanagement
 
-import FirstFragment
 import SecondFragment
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ListView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.msnit.inventoryrentalmanagement.items.AddItemDialog
+import com.msnit.inventoryrentalmanagement.items.ItemsFragment
 
 class MainScreen : AppCompatActivity() {
-    private lateinit var listView: ListView
+    private var activeFragment: Fragment? = null
 
-   override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_screen)
 
@@ -24,36 +24,35 @@ class MainScreen : AppCompatActivity() {
         }
 
 
-
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
+        bottomNavigationView.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.home -> {
-                    loadFragment(FirstFragment())
-                    return@setOnNavigationItemSelectedListener true
+                    loadFragment(ItemsFragment())
+                    true
                 }
+
                 R.id.Search -> {
                     loadFragment(SecondFragment())
-                    return@setOnNavigationItemSelectedListener true
+                    true
                 }
-                R.id.placeholder -> {
-                    // اعمل شيئًا ما أو قم بإجراء إضافي
-                    return@setOnNavigationItemSelectedListener true
-                }
+
                 R.id.person -> {
-                    loadFragment(FirstFragment())
-                    return@setOnNavigationItemSelectedListener true
+                    loadFragment(ItemsFragment())
+                    true
                 }
+
                 R.id.settings -> {
-                    loadFragment(FirstFragment())
-                    return@setOnNavigationItemSelectedListener true
+                    loadFragment(ItemsFragment())
+                    true
                 }
-                else -> return@setOnNavigationItemSelectedListener false
+
+                else -> false
             }
         }
 
         // تحميل الفراغ الفرعي الأول عند بدء التطبيق
-        loadFragment(FirstFragment())
+        loadFragment(ItemsFragment())
     }
 
     private fun loadFragment(fragment: Fragment) {
@@ -61,10 +60,26 @@ class MainScreen : AppCompatActivity() {
         val fragmentTransaction: FragmentTransaction = fm.beginTransaction()
         fragmentTransaction.replace(R.id.flFragment, fragment)
         fragmentTransaction.commit()
+        activeFragment = fragment
+
     }
 
     private fun showCustomDialog() {
-        val customDialog = CustomDialog()
-        customDialog.show(supportFragmentManager, "CustomDialog")
+        when (activeFragment) {
+            is ItemsFragment -> {
+                val itemsFragment = activeFragment as? ItemsFragment
+                if (itemsFragment != null) {
+                    val addItemDialog = AddItemDialog { item ->
+                        itemsFragment.addItem(item)
+                    }
+                    addItemDialog.show(supportFragmentManager, "CustomDialog")
+                }
+            }
+
+            is SecondFragment -> {
+                // Handle Fragment2 being active
+            }
+        }
     }
+
 }

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:hint="Item Name"
+        android:drawableStart="@drawable/ic_item_name"
+        android:drawablePadding="8dp"/>
+
+    <EditText
+        android:id="@+id/editTextDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:hint="Description"
+        android:drawableStart="@drawable/ic_description"
+        android:drawablePadding="8dp"/>
+
+    <EditText
+        android:id="@+id/editTextCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:hint="Category"
+        android:drawableStart="@drawable/ic_category"
+        android:drawablePadding="8dp"/>
+
+    <EditText
+        android:id="@+id/editTextPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:hint="Price"
+        android:drawableStart="@drawable/ic_price"
+        android:drawablePadding="8dp"
+        android:inputType="numberDecimal"/>
+
+    <EditText
+        android:id="@+id/editTextQuantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:hint="Quantity"
+        android:drawableStart="@drawable/ic_quantity"
+        android:drawablePadding="8dp"
+        android:inputType="number"/>
+
+</LinearLayout>
