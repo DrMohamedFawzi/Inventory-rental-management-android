@@ -1,7 +1,4 @@
-package com.msnit.inventoryrentalmanagement.items
-
-
-
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
 import android.widget.EditText
@@ -13,6 +10,7 @@ import com.msnit.inventoryrentalmanagement.db.entity.Item
 
 class AddItemDialog(private val addItemListener: (Item) -> Unit) : DialogFragment() {
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = AlertDialog.Builder(requireActivity())
         val inflater = requireActivity().layoutInflater
@@ -33,9 +31,20 @@ class AddItemDialog(private val addItemListener: (Item) -> Unit) : DialogFragmen
             val price = editTextPrice.text.toString().toDoubleOrNull() ?: 0.0
             val quantity = editTextQuantity.text.toString().toIntOrNull() ?: 0
 
-            val newItem = Item(name = name, description = description, category = category, rentalPrice = price, quantity = quantity)
+            val newItem = Item(
+                name = name,
+                description = description,
+                category = category,
+                rentalPrice = price,
+                quantity = quantity
+            )
 
             addItemListener(newItem)
+
+            // قم بإدراج العنصر في قاعدة البيانات باستخدام ItemDao
+            val itemDao = DbConnection.getDb(requireContext()).itemDao()
+            itemDao.insert(newItem)
+
 
             dialog.dismiss()
         }

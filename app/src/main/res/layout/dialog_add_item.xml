@@ -14,7 +14,8 @@
         android:textSize="16sp"
         android:hint="Item Name"
         android:drawableStart="@drawable/ic_item_name"
-        android:drawablePadding="8dp"/>
+        android:drawablePadding="8dp"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/editTextDescription"
@@ -22,9 +23,9 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:textSize="16sp"
-        android:hint="Description"
-        android:drawableStart="@drawable/ic_description"
-        android:drawablePadding="8dp"/>
+        android:hint="Item Description"
+        android:drawablePadding="8dp"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/editTextCategory"
@@ -32,9 +33,9 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:textSize="16sp"
-        android:hint="Category"
-        android:drawableStart="@drawable/ic_category"
-        android:drawablePadding="8dp"/>
+        android:hint="Item Category"
+        android:drawablePadding="8dp"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/editTextPrice"
@@ -42,10 +43,9 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:textSize="16sp"
-        android:hint="Price"
-        android:drawableStart="@drawable/ic_price"
+        android:hint="Rental Price"
         android:drawablePadding="8dp"
-        android:inputType="numberDecimal"/>
+        android:inputType="numberDecimal" />
 
     <EditText
         android:id="@+id/editTextQuantity"
@@ -54,8 +54,7 @@
         android:padding="8dp"
         android:textSize="16sp"
         android:hint="Quantity"
-        android:drawableStart="@drawable/ic_quantity"
         android:drawablePadding="8dp"
-        android:inputType="number"/>
+        android:inputType="number" />
 
 </LinearLayout>

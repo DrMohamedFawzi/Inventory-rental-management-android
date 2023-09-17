@@ -6,6 +6,10 @@
     <string name="profile" translatable="false">Profile</string>
     <string name="settings" translatable="false">Settings</string>
     <string name="image_description" />
+    <string name="quantity_placeholder" />
+    <string name="price_placeholder" />
+    <string name="description_placeholder" />
+    <string name="title_placeholder" />
 
     <string-array name="data_list">
             <item>Option 1</item>

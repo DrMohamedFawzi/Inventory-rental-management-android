@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    app:cardElevation="4dp"
     android:layout_margin="10dp"
     app:cardBackgroundColor="@android:color/white"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp">
+    app:cardCornerRadius="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,54 +14,52 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-
-
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/baseline_heart_broken_24"
+            android:contentDescription="@string/image_description" />
 
         <TextView
             android:id="@+id/titleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Fuck* Nedal"
+            android:text="@string/title_placeholder"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
 
-    <TextView
+        <TextView
             android:id="@+id/descriptionTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Fuck* Nedal"
+            android:text="@string/description_placeholder"
             android:textColor="@android:color/black"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
-    <TextView
+        <TextView
             android:id="@+id/priceTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Fuck* Nedal"
+            android:text="@string/price_placeholder"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
 
-    <TextView
+        <TextView
             android:id="@+id/quantityTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Fuck* Nedal"
+            android:text="@string/quantity_placeholder"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
 
-
     </LinearLayout>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="40dp" />
 
 </androidx.cardview.widget.CardView>

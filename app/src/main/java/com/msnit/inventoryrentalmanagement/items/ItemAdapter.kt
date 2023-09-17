@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.msnit.inventoryrentalmanagement.R
 import com.msnit.inventoryrentalmanagement.db.entity.Item
+
 class ItemAdapter(private val data: List<Item>, private val itemClickListener: OnItemClickListener) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     interface OnItemClickListener {
@@ -35,14 +36,12 @@ class ItemAdapter(private val data: List<Item>, private val itemClickListener: O
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val titleTextView: TextView = itemView.findViewById(R.id.titleTextView)
         private val descriptionTextView: TextView = itemView.findViewById(R.id.descriptionTextView)
-//        private val categoryTextView: TextView = itemView.findViewById(R.id.categoryTextView)
         private val priceTextView: TextView = itemView.findViewById(R.id.priceTextView)
         private val quantityTextView: TextView = itemView.findViewById(R.id.quantityTextView)
 
         fun bind(item: Item) {
             titleTextView.text = item.name
-                        descriptionTextView.text = item.description
-//            categoryTextView.text = item.category
+            descriptionTextView.text = item.description
             priceTextView.text = "Price: ${item.rentalPrice}"
             quantityTextView.text = "Quantity: ${item.quantity}"
         }

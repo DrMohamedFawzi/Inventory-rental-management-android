@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="quantityTextView" type="id" />
+    <item name="priceTextView" type="id" />
+    <item name="descriptionTextView" type="id" />
+    <item name="categoryTextView" type="id" />
+    <item name="editTextQuantity" type="id" />
+    <item name="editTextPrice" type="id" />
+    <item name="editTextCategory" type="id" />
+    <item name="editTextDescription" type="id" />
+</resources>
