@@ -15,11 +15,15 @@
         android:padding="16dp">
 
         <ImageView
+
             android:id="@+id/imageView"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/baseline_heart_broken_24"
-            android:contentDescription="@string/image_description" />
+            android:contentDescription="@string/image_description"
+
+         android:layout_gravity="center"
+            />
 
         <TextView
             android:id="@+id/titleTextView"
