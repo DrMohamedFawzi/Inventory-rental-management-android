@@ -75,6 +75,10 @@ class MainScreen : AppCompatActivity() {
                     addItemDialog.show(supportFragmentManager, "CustomDialog")
                 }
             }
+
+            is SecondFragment -> {
+                // Handle Fragment2 being active
+            }
         }
     }
 

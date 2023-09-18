@@ -44,6 +44,6 @@
         android:src="@drawable/add"
         app:layout_anchor="@id/bottomAppBar"
         app:layout_anchorGravity="center"
-        android:contentDescription="Floating Action Button" />
+        android:contentDescription="ADD" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

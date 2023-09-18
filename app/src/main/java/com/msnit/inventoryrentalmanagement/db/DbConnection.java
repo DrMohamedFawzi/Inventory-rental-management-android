@@ -7,7 +7,7 @@ import androidx.room.Room;
 import org.jetbrains.annotations.NotNull;
 
 public class DbConnection {
-    private final RentalDatabase db;
+    private  final RentalDatabase db;
 
     public DbConnection(Context applicationContext) {
         db = Room.databaseBuilder(applicationContext,
@@ -20,12 +20,11 @@ public class DbConnection {
         return db;
     }
 
-    public static DbConnection getDb(Context context) {
-        return new DbConnection(context.getApplicationContext());
+    public static RentalDatabase getDb(Context context) {
+        return Room.databaseBuilder(context,
+                RentalDatabase.class,
+                "rental_db"
+        ).build();
     }
 
-    @NotNull
-    public Object itemDao() {
-        return null;
-    }
 }

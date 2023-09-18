@@ -7,8 +7,23 @@ import androidx.fragment.app.DialogFragment
 import com.msnit.inventoryrentalmanagement.R
 import com.msnit.inventoryrentalmanagement.db.DbConnection
 import com.msnit.inventoryrentalmanagement.db.entity.Item
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
-class AddItemDialog(private val addItemListener: (Item) -> Unit) : DialogFragment() {
+class AddItemDialog(private val addItemListener: (Item) -> Unit) : DialogFragment(),
+    CoroutineScope {
+    private var job: Job = Job()
+
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + job
+
+    override fun onDestroy() {
+        super.onDestroy()
+        job.cancel()
+    }
 
     @SuppressLint("MissingInflatedId")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -42,8 +57,10 @@ class AddItemDialog(private val addItemListener: (Item) -> Unit) : DialogFragmen
             addItemListener(newItem)
 
             // قم بإدراج العنصر في قاعدة البيانات باستخدام ItemDao
-            val itemDao = DbConnection.getDb(requireContext()).itemDao()
-            itemDao.insert(newItem)
+            launch {
+                val itemDao = DbConnection.getDb(context).itemDao()
+                itemDao.insert(newItem)
+            }
 
 
             dialog.dismiss()
