@@ -1,6 +1,7 @@
 package com.msnit.inventoryrentalmanagement
 
-import AddItemDialog
+import ItemsFragment
+import com.msnit.inventoryrentalmanagement.items.AddItemDialog
 import SecondFragment
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +10,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.msnit.inventoryrentalmanagement.items.ItemsFragment
 
 class MainScreen : AppCompatActivity() {
     private var activeFragment: Fragment? = null

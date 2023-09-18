@@ -1,15 +1,14 @@
-package com.msnit.inventoryrentalmanagement.items
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.msnit.inventoryrentalmanagement.R
 import com.msnit.inventoryrentalmanagement.db.entity.Item
+import com.msnit.inventoryrentalmanagement.items.ItemAdapter
 
 class ItemsFragment : Fragment(), ItemAdapter.OnItemClickListener {
 
@@ -24,10 +23,14 @@ class ItemsFragment : Fragment(), ItemAdapter.OnItemClickListener {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_items, container, false)
 
+
+
+
+
         adapter = ItemAdapter(items, this)
 
         recyclerView = view.findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         recyclerView.adapter = adapter
 
         var sampleItem = Item(
@@ -39,8 +42,7 @@ class ItemsFragment : Fragment(), ItemAdapter.OnItemClickListener {
         )
         addItem(sampleItem)
 
-
-         sampleItem = Item(
+        sampleItem = Item(
             name = "بطاقة2",
             description = "Description 1",
             category = "Category 1",
@@ -49,8 +51,7 @@ class ItemsFragment : Fragment(), ItemAdapter.OnItemClickListener {
         )
         addItem(sampleItem)
 
-
-         sampleItem = Item(
+        sampleItem = Item(
             name = "بطاقة 3",
             description = "Description 1",
             category = "Category 1",
@@ -59,8 +60,7 @@ class ItemsFragment : Fragment(), ItemAdapter.OnItemClickListener {
         )
         addItem(sampleItem)
 
-
-         sampleItem = Item(
+        sampleItem = Item(
             name = "بطاق111111ة 1",
             description = "Description 1",
             category = "Category 1",
@@ -68,7 +68,6 @@ class ItemsFragment : Fragment(), ItemAdapter.OnItemClickListener {
             quantity = 5
         )
         addItem(sampleItem)
-
 
         return view
     }
@@ -78,12 +77,15 @@ class ItemsFragment : Fragment(), ItemAdapter.OnItemClickListener {
         adapter.notifyItemInserted(items.size - 1)
     }
 
-     fun removeItem(position: Int) {
+    private fun removeItem(position: Int) {
         items.removeAt(position)
         adapter.notifyItemRemoved(position)
     }
+
+
+
+
     override fun onItemClick(item: Item) {
         Toast.makeText(requireContext(), "Item clicked: ${item.name}", Toast.LENGTH_SHORT).show()
     }
-
 }
