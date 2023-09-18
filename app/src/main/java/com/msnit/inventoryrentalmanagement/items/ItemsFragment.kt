@@ -7,10 +7,25 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.msnit.inventoryrentalmanagement.R
+import com.msnit.inventoryrentalmanagement.db.DbConnection
 import com.msnit.inventoryrentalmanagement.db.entity.Item
 import com.msnit.inventoryrentalmanagement.items.ItemAdapter
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
-class ItemsFragment : Fragment(), ItemAdapter.OnItemClickListener {
+class ItemsFragment : Fragment(), ItemAdapter.OnItemClickListener ,
+    CoroutineScope {
+    private var job: Job = Job()
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + job
+
+    override fun onDestroy() {
+        super.onDestroy()
+        job.cancel()
+    }
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ItemAdapter
@@ -33,45 +48,18 @@ class ItemsFragment : Fragment(), ItemAdapter.OnItemClickListener {
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         recyclerView.adapter = adapter
 
-        var sampleItem = Item(
-            name = "بطاقة 1",
-            description = "Description 1",
-            category = "Category 1",
-            rentalPrice = 10.0,
-            quantity = 5
-        )
-        addItem(sampleItem)
 
-        sampleItem = Item(
-            name = "بطاقة2",
-            description = "Description 1",
-            category = "Category 1",
-            rentalPrice = 10.0,
-            quantity = 5
-        )
-        addItem(sampleItem)
-
-        sampleItem = Item(
-            name = "بطاقة 3",
-            description = "Description 1",
-            category = "Category 1",
-            rentalPrice = 10.0,
-            quantity = 5
-        )
-        addItem(sampleItem)
-
-        sampleItem = Item(
-            name = "بطاق111111ة 1",
-            description = "Description 1",
-            category = "Category 1",
-            rentalPrice = 10.0,
-            quantity = 5
-        )
-        addItem(sampleItem)
-
+        launch {
+            val itemDao = DbConnection.getDb(context).itemDao()
+             addItems(itemDao.getAllItems())
+        }
         return view
     }
 
+    fun addItems(_items :List<Item>) {
+        items.addAll(_items)
+        adapter.notifyDataSetChanged()
+    }
     fun addItem(item: Item) {
         items.add(item)
         adapter.notifyItemInserted(items.size - 1)

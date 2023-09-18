@@ -25,6 +25,8 @@
         android:textSize="16sp"
         android:hint="Item Description"
         android:drawablePadding="8dp"
+        android:drawableStart="@drawable/ic_description"
+
         android:inputType="text" />
 
     <EditText
@@ -35,6 +37,8 @@
         android:textSize="16sp"
         android:hint="Item Category"
         android:drawablePadding="8dp"
+        android:drawableStart="@drawable/ic_category"
+
         android:inputType="text" />
 
     <EditText
@@ -44,6 +48,8 @@
         android:padding="8dp"
         android:textSize="16sp"
         android:hint="Rental Price"
+        android:drawableStart="@drawable/ic_price"
+
         android:drawablePadding="8dp"
         android:inputType="numberDecimal" />
 
@@ -54,6 +60,8 @@
         android:padding="8dp"
         android:textSize="16sp"
         android:hint="Quantity"
+        android:drawableStart="@drawable/ic_quantity"
+
         android:drawablePadding="8dp"
         android:inputType="number" />
 
