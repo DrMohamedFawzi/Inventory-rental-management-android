@@ -40,8 +40,8 @@ class ItemAdapter(private val data: List<Item>, private val itemClickListener: O
         private val quantityTextView: TextView = itemView.findViewById(R.id.quantityTextView)
 
         fun bind(item: Item) {
-            titleTextView.text = item.name
-            descriptionTextView.text = item.description
+            titleTextView.text = " title: ${item.name}"
+            descriptionTextView.text =  "description: ${item.description}"
             priceTextView.text = "Price: ${item.rentalPrice}"
             quantityTextView.text = "Quantity: ${item.quantity}"
         }
