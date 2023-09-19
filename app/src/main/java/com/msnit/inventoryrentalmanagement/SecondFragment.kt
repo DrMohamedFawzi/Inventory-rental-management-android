@@ -20,9 +20,8 @@ class SecondFragment : Fragment() {
         // Get a reference to the button from the layout
 
         // Set a click listener for the button
-        secondButton.setOnClickListener {
-            Toast.makeText(activity, "Clicked on Second Fragment", Toast.LENGTH_SHORT).show()
-        }
+
+
 
         // Set up the toolbar
         val topAppBar = view.findViewById<MaterialToolbar>(R.id.topAppBar)
