@@ -10,6 +10,9 @@
     <string name="price_placeholder" />
     <string name="description_placeholder" />
     <string name="title_placeholder" />
+    <string name="more" />
+    <string name="content_description_more" />
+    <string name="content_description_search" />
 
     <string-array name="data_list">
             <item>Option 1</item>
