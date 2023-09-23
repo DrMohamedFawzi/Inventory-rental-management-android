@@ -9,14 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.msnit.inventoryrentalmanagement.R
 import com.msnit.inventoryrentalmanagement.db.DbConnection
 import com.msnit.inventoryrentalmanagement.db.entity.Item
-import com.msnit.inventoryrentalmanagement.items.ItemAdapter
+import com.msnit.inventoryrentalmanagement.items.ItemAdapterSecFrag
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
-class ItemsFragment : Fragment(), ItemAdapter.OnItemClickListener ,
+class ItemsFragment : Fragment(), ItemAdapterSecFrag.OnItemClickListener ,
     CoroutineScope {
     private var job: Job = Job()
     override val coroutineContext: CoroutineContext
@@ -28,7 +28,7 @@ class ItemsFragment : Fragment(), ItemAdapter.OnItemClickListener ,
     }
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: ItemAdapter
+    private lateinit var adapter: ItemAdapterSecFrag
     private val items = mutableListOf<Item>() // List to store items
 
     override fun onCreateView(
@@ -36,13 +36,15 @@ class ItemsFragment : Fragment(), ItemAdapter.OnItemClickListener ,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_items, container, false)
+        val view = inflater.inflate(R.layout.fragment_items, container, false
+
+        )
 
 
 
 
 
-        adapter = ItemAdapter(items, this)
+        adapter = ItemAdapterSecFrag(items, this)
 
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)

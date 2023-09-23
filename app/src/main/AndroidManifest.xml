@@ -13,6 +13,16 @@
         android:theme="@style/Theme.InventoryRentalManagement"
         tools:targetApi="31">
         <activity
+            android:name=".itemSecFrag.sec_fragment_item"
+            android:exported="false"
+            android:label="@string/title_activity_sec_fragment_item"
+            android:theme="@style/Theme.InventoryRentalManagement" />
+        <activity
+            android:name=".itemSecFrag.dialog_add_tenant"
+            android:exported="false"
+            android:label="@string/title_activity_dialog_add_tenant"
+            android:theme="@style/Theme.InventoryRentalManagement" />
+        <activity
             android:name=".MainScreen"
             android:exported="false" />
         <activity
@@ -34,8 +44,5 @@
             </intent-filter>
         </activity>
     </application>
-
-    <!--on below line we are adding a style for MainActivity-->
-
 
 </manifest>

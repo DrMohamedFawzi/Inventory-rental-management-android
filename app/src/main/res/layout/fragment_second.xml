@@ -20,6 +20,11 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <!-- Add your desired view here -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewtenant"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>

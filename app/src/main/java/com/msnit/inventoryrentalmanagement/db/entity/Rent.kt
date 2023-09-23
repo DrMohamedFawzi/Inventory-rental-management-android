@@ -8,9 +8,10 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "rents")
 data class Rent(
     @PrimaryKey(autoGenerate = true)
-    val itemId: Long = 0,
+    val rentId: Long = 0,
 
     val name: String,
     val username: String,
-    val items: List<Item>
+    val items: List<Item>,
+    val quantity: Int
 )

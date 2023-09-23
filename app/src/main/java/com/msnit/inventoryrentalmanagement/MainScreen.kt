@@ -1,8 +1,8 @@
 package com.msnit.inventoryrentalmanagement
 
 import ItemsFragment
-import com.msnit.inventoryrentalmanagement.items.AddItemDialog
 import SecondFragment
+import com.msnit.inventoryrentalmanagement.items.AddItemDialog
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.msnit.inventoryrentalmanagement.itemSecFrag.DialogAddTenant
 
 class MainScreen : AppCompatActivity() {
     private var activeFragment: Fragment? = null
@@ -77,9 +78,13 @@ class MainScreen : AppCompatActivity() {
             }
 
             is SecondFragment -> {
-                // Handle Fragment2 being active
+                val secFragmentItem = activeFragment as? SecondFragment
+                if (secFragmentItem != null) {
+                    val addItemDialog = DialogAddTenant { item ->
+                        secFragmentItem.addItem(item)
+                    }
+                    addItemDialog.show(supportFragmentManager, "CustomDialog")
+                }
             }
         }
-    }
-
-}
+    }}
